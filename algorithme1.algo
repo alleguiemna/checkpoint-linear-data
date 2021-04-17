@@ -1,0 +1,35 @@
+ALGORITHM Sum_distinct
+VAR
+    arr1,arr2 : ARRAY_OF INTEGER;
+    sum,n,m,i,j:INTEGER;
+    found:BOOLEAN;
+BEGIN
+    sum:=0;
+    n:=arr1.length-1;
+    m:=arr2.length-1;
+    //parcours de premier tableau par rapport au deuxieme tableau
+    FOR i FROM 0 TO n STEP 1  DO
+    found:=FALSE;
+        FOR j FROM 0 TO m STEP 1  DO
+            IF (arr1[i]=arr2[j]) THEN
+                found:=TRUE;BREAK
+            END_IF
+        END_FOR
+    IF (found=FALSE) THEN
+        sum:=sum+arr1[i];
+    END_IF
+    END_FOR
+    //parcours de deuxieme tableau par rapport au premier tableau
+    FOR i FROM 0 TO m STEP 1  DO
+    found:=FALSE;
+        FOR j FROM 0 TO n STEP 1  DO
+            IF (arr2[i]=arr1[j) THEN
+                found:=TRUE;BREAK
+            END_IF
+        END_FOR
+    IF (found) THEN
+        sum:=sum+arr2[i];
+    END_IF
+    END_FOR
+    write(sum);
+END
